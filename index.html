@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Bipolaridade e relacionados</title>
+<title>Contexto Geral</title>
 <style>
   :root{--bg:#0f172a;--card:#111827;--line:#1f2937;--text:#e5e7eb;--muted:#94a3b8;--pri:#4f46e5;--ok:#22c55e;--err:#ef4444}
   *{box-sizing:border-box}
@@ -45,7 +45,7 @@
 <body>
 <div class="wrap">
   <div class="card">
-    <h1>Bipolaridade e relacionados</h1>
+    <h1>Contexto Geral</h1>
     <p class="muted">Para respostas relevantes, descreva <b>exemplo recente, quando, quem viu e impacto</b>. Responda com o máximo de detalhes possível.</p>
 
     <!-- Dados do paciente (por token) -->
@@ -103,88 +103,83 @@ const YNP     = ["Sim","Não","Não sei"];
 
 // Perguntas
 const QUESTIONS = [
- { type:"checkbox", section:"Neurodesenvolvimento — História", text:"Marcos de linguagem atrasados na infância", options: YNP },
-  { type:"checkbox", section:"Neurodesenvolvimento — História", text:"Dificuldades escolares persistentes (leitura/escrita/matemática) desde cedo", options: YNP },
-  { type:"checkbox", section:"Neurodesenvolvimento — História", text:"Histórico familiar de TEA/TDAH/DI/Transtornos de linguagem", options: ["Não","TEA","TDAH","DI","Linguagem","Tiques","Outros"] },
-  { type:"checkbox", section:"Neurodesenvolvimento — História", text:"Recebeu intervenções ou adaptações (reforço escolar, fono, TO) na infância/adolescência", options: YNP },
+  { type:"checkbox", section:"Bipolar — Triagem & História", text:"Oscilações marcantes de humor e energia ao longo da vida", options: FREQ5 },
+  { type:"checkbox", section:"Bipolar — Triagem & História", text:"Sintomas iniciaram na adolescência/vida adulta jovem", options: YNP },
+  { type:"checkbox", section:"Bipolar — Triagem & História", text:"Histórico familiar de bipolaridade/suicídio", options: YNP },
+  { type:"checkbox", section:"Bipolar — Triagem & História", text:"Episódios que duram dias/semanas (não apenas horas)", options: YNP },
+  { type:"checkbox", section:"Bipolar — Triagem & História", text:"Prejuízo em ≥2 contextos (casa/trabalho/social) durante episódios", options: YNP },
 
-  // ——— TEA — Comunicação Social ———
-  { type:"checkbox", section:"Neurodesenvolvimento — TEA (Comunic./Social)", text:"Dificuldade para iniciar/manter conversas espontâneas", options: FREQ5 },
-  { type:"checkbox", section:"Neurodesenvolvimento — TEA (Comunic./Social)", text:"Dificuldade em compreender pistas sociais (expressões, tom de voz, subtexto)", options: FREQ5 },
-  { type:"checkbox", section:"Neurodesenvolvimento — TEA (Comunic./Social)", text:"Uso de linguagem literal; dificuldade com ironias/duplo sentido", options: FREQ5 },
-  { type:"checkbox", section:"Neurodesenvolvimento — TEA (Comunic./Social)", text:"Dificuldade em ajustar comunicação ao contexto (formal x informal)", options: FREQ5 },
-  { type:"checkbox", section:"Neurodesenvolvimento — TEA (Comunic./Social)", text:"Evita ou sustenta pouco o contato ocular", options: FREQ5 },
+  // ——— EPISÓDIO MANÍACO/HIPOMANÍACO (núcleo) ———
+  { type:"checkbox", section:"Bipolar — Mania/Hipomania (Núcleo)", text:"Humor elevado/expansivo ou irritável de forma anormal", options: FREQ5 },
+  { type:"checkbox", section:"Bipolar — Mania/Hipomania (Núcleo)", text:"Aumento de energia/atividade dirigida a objetivos", options: FREQ5 },
+  { type:"checkbox", section:"Bipolar — Mania/Hipomania (Núcleo)", text:"Diminuição da necessidade de sono (poucas horas sem cansaço)", options: FREQ5 },
+  { type:"checkbox", section:"Bipolar — Mania/Hipomania (Núcleo)", text:"Grandiosidade/autoestima inflada (sentir-se 'acima do normal')", options: FREQ5 },
+  { type:"checkbox", section:"Bipolar — Mania/Hipomania (Núcleo)", text:"Pressão para falar/verborragia", options: FREQ5 },
+  { type:"checkbox", section:"Bipolar — Mania/Hipomania (Núcleo)", text:"Fuga de ideias/pensamento acelerado", options: FREQ5 },
+  { type:"checkbox", section:"Bipolar — Mania/Hipomania (Núcleo)", text:"Distraibilidade aumentada", options: FREQ5 },
 
-  // ——— TEA — Comportamentos/Interesses/Sensorial ———
-  { type:"checkbox", section:"Neurodesenvolvimento — TEA (Comport./Interesses)", text:"Interesses restritos e intensos (monotrópicos), ocupando muito tempo/energia", options: FREQ5 },
-  { type:"checkbox", section:"Neurodesenvolvimento — TEA (Comport./Interesses)", text:"Necessidade de rotinas/regras rígidas; sofrimento com mudanças inesperadas", options: FREQ5 },
-  { type:"checkbox", section:"Neurodesenvolvimento — TEA (Comport./Interesses)", text:"Movimentos repetitivos (balançar mãos/corpo, bater objetos)", options: FREQ5 },
-  { type:"checkbox", section:"Neurodesenvolvimento — TEA (Comport./Interesses)", text:"Máscara/camuflagem social (forçar naturalidade, script de conversa) com custo de exaustão", options: FREQ5 },
-  { type:"checkbox", section:"Neurodesenvolvimento — TEA (Comport./Interesses)", text:"Hipersensibilidade/hipossensibilidade sensorial (som, luz, toque, cheiros, texturas)", options: FREQ5 },
+  // ——— EPISÓDIO MANÍACO/HIPOMANÍACO (comportamentos de risco) ———
+  { type:"checkbox", section:"Bipolar — Mania/Hipomania (Risco)", text:"Gastos excessivos/impulsivos", options: FREQ5 },
+  { type:"checkbox", section:"Bipolar — Mania/Hipomania (Risco)", text:"Aumento de comportamento sexual/sexo de risco", options: FREQ5 },
+  { type:"checkbox", section:"Bipolar — Mania/Hipomania (Risco)", text:"Planos grandiosos/decisões ousadas sem avaliar riscos", options: FREQ5 },
+  { type:"checkbox", section:"Bipolar — Mania/Hipomania (Risco)", text:"Apostas/compras/negócios impulsivos", options: FREQ5 },
 
-  // ——— COMUNICAÇÃO SOCIAL (Pragmática) ———
-  { type:"checkbox", section:"Neurodesenvolvimento — Comunicação (Pragmática)", text:"Dificuldade com turnos de fala (interrompe ou não engaja)", options: FREQ5 },
-  { type:"checkbox", section:"Neurodesenvolvimento — Comunicação (Pragmática)", text:"Desorganização do discurso (foge do tópico/perde o fio)", options: FREQ5 },
-  { type:"checkbox", section:"Neurodesenvolvimento — Comunicação (Pragmática)", text:"Dificuldade para adaptar vocabulário/registro ao interlocutor", options: FREQ5 },
-  { type:"checkbox", section:"Neurodesenvolvimento — Comunicação (Pragmática)", text:"Problemas em compreender metáforas/insinuações", options: FREQ5 },
+  // ——— EPISÓDIO DEPRESSIVO ———
+  { type:"checkbox", section:"Bipolar — Depressivo", text:"Humor deprimido e/ou perda de interesse (anedonia)", options: FREQ5 },
+  { type:"checkbox", section:"Bipolar — Depressivo", text:"Fadiga/queda de energia", options: FREQ5 },
+  { type:"checkbox", section:"Bipolar — Depressivo", text:"Culpa excessiva/autoacusação", options: FREQ5 },
+  { type:"checkbox", section:"Bipolar — Depressivo", text:"Dificuldade de concentração/indecisão", options: FREQ5 },
+  { type:"checkbox", section:"Bipolar — Depressivo", text:"Alterações do sono (insônia ou hipersonia)", options: FREQ5 },
+  { type:"checkbox", section:"Bipolar — Depressivo", text:"Alterações de apetite/peso", options: FREQ5 },
+  { type:"checkbox", section:"Bipolar — Depressivo", text:"Ideação suicida ou autoagressão", options: YNP },
 
-  // ——— TDAH — Desatenção (Adulto/Avançado) ———
-  { type:"checkbox", section:"Neurodesenvolvimento — TDAH (Desatenção)", text:"Erros por descuido em tarefas/relatórios/detalhes", options: FREQ5 },
-  { type:"checkbox", section:"Neurodesenvolvimento — TDAH (Desatenção)", text:"Dificuldade de manter atenção em leituras/reuniões", options: FREQ5 },
-  { type:"checkbox", section:"Neurodesenvolvimento — TDAH (Desatenção)", text:"Perde objetos com frequência (chaves, crachá, celular)", options: FREQ5 },
-  { type:"checkbox", section:"Neurodesenvolvimento — TDAH (Desatenção)", text:"Tempo subjetivo distorcido (subestima prazos; 'time blindness')", options: FREQ5 },
-  { type:"checkbox", section:"Neurodesenvolvimento — TDAH (Desatenção)", text:"Paralisa diante de muitas tarefas (sobrecarga por onde começar)", options: FREQ5 },
+  // ——— CARACTERÍSTICAS MISTAS ———
+  { type:"checkbox", section:"Bipolar — Características Mistas", text:"Sintomas maníacos e depressivos ao mesmo tempo", options: YNP },
+  { type:"checkbox", section:"Bipolar — Características Mistas", text:"Agitação/insônia + humor deprimido/culpa", options: FREQ5 },
 
-  // ——— TDAH — Hiperatividade/Impulsividade (Adulto/Avançado) ———
-  { type:"checkbox", section:"Neurodesenvolvimento — TDAH (Hiper/Impulso)", text:"Inquietação interna/externa (mexer, levantar sem perceber)", options: FREQ5 },
-  { type:"checkbox", section:"Neurodesenvolvimento — TDAH (Hiper/Impulso)", text:"Fala em excesso/interrompe respostas", options: FREQ5 },
-  { type:"checkbox", section:"Neurodesenvolvimento — TDAH (Hiper/Impulso)", text:"Age sem pensar; compras/decisões por impulso", options: FREQ5 },
-  { type:"checkbox", section:"Neurodesenvolvimento — TDAH (Hiper/Impulso)", text:"Dificuldade para esperar a própria vez (fila/reunião)", options: FREQ5 },
-  { type:"checkbox", section:"Neurodesenvolvimento — TDAH (Hiper/Impulso)", text:"Oscilação rápida entre hiperfoco e dispersão", options: FREQ5 },
+  // ——— SONO & RITMO CIRCADIANO ———
+  { type:"checkbox", section:"Bipolar — Sono & Ritmo", text:"Privação de sono precipita episódios", options: YNP },
+  { type:"checkbox", section:"Bipolar — Sono & Ritmo", text:"Padrão sono-vigília irregular (jet lag, turnos)", options: FREQ5 },
+  { type:"checkbox", section:"Bipolar — Sono & Ritmo", text:"Ciclos de alta/baixa energia em padrão sazonal", options: YNP },
 
-  // ——— TRANSTORNOS ESPECÍFICOS DA APRENDIZAGEM (LE/ES/MA) ———
-  { type:"checkbox", section:"Neurodesenvolvimento — Aprendizagem", text:"Leitura lenta/fadiga; perde linha/pula palavras", options: FREQ5 },
-  { type:"checkbox", section:"Neurodesenvolvimento — Aprendizagem", text:"Ortografia com trocas/omissões persistentes", options: FREQ5 },
-  { type:"checkbox", section:"Neurodesenvolvimento — Aprendizagem", text:"Dificuldades para planejar/redigir textos (coesão/coerência)", options: FREQ5 },
-  { type:"checkbox", section:"Neurodesenvolvimento — Aprendizagem", text:"Dificuldade com fatos aritméticos (tabuada)", options: FREQ5 },
-  { type:"checkbox", section:"Neurodesenvolvimento — Aprendizagem", text:"Erros em cálculo mental e escrito (com ou sem suporte)", options: FREQ5 },
-  { type:"checkbox", section:"Neurodesenvolvimento — Aprendizagem", text:"Dificuldade em problemas de texto/interpretação matemática", options: FREQ5 },
-  { type:"checkbox", section:"Neurodesenvolvimento — Aprendizagem", text:"Dificuldades iniciaram na escola e persistem na vida adulta", options: YNP },
+  // ——— PSICOSE (avaliar congruência com humor) ———
+  { type:"checkbox", section:"Bipolar — Psicose", text:"Ideias delirantes ou alucinações durante episódios", options: YNP },
+  { type:"checkbox", section:"Bipolar — Psicose", text:"Sintomas psicóticos congruentes com humor (grandeza/culpa)", options: YNP },
+  { type:"checkbox", section:"Bipolar — Psicose", text:"Sintomas psicóticos incongruentes com humor", options: YNP },
 
-  // ——— TRANSTORNO DO DESENVOLVIMENTO DA COORDENAÇÃO (TDC) ———
-  { type:"checkbox", section:"Neurodesenvolvimento — Coordenação (TDC)", text:"Desajeito motor (tropeços/derruba objetos/evita esportes)", options: FREQ5 },
-  { type:"checkbox", section:"Neurodesenvolvimento — Coordenação (TDC)", text:"Dificuldade em motricidade fina (talheres, botões, zíper, cortar)", options: FREQ5 },
-  { type:"checkbox", section:"Neurodesenvolvimento — Coordenação (TDC)", text:"Letra cansativa/ilegível; lentidão para escrever à mão", options: FREQ5 },
-  { type:"checkbox", section:"Neurodesenvolvimento — Coordenação (TDC)", text:"Dificuldade para aprender sequências motoras (dirigir, manobras)", options: FREQ5 },
-  { type:"checkbox", section:"Neurodesenvolvimento — Coordenação (TDC)", text:"Evita atividades que exigem coordenação/força/ritmo", options: FREQ5 },
+  // ——— CURSO & ESPECIFICADORES ———
+  { type:"checkbox", section:"Bipolar — Curso", text:"Ciclagem rápida (≥4 episódios/ano) suspeita", options: YNP },
+  { type:"checkbox", section:"Bipolar — Curso", text:"Padrão periparto/puerpério (início no pós-parto)", options: YNP },
+  { type:"checkbox", section:"Bipolar — Curso", text:"Episódios exigiram hospitalização ou afastamento", options: YNP },
+  { type:"checkbox", section:"Bipolar — Curso", text:"Períodos de remissão completa entre episódios", options: YNP },
 
-  // ——— TRANSTORNOS DE TICA ———
-  { type:"checkbox", section:"Neurodesenvolvimento — Tiques", text:"Presença de tiques (motores/vocais) atuais ou passados", options: ["Não","Motores","Vocais","Motores e vocais"] },
-  { type:"checkbox", section:"Neurodesenvolvimento — Tiques", text:"Sensação premonitória antes do tique (tensão/alívio após)", options: YNP },
-  { type:"checkbox", section:"Neurodesenvolvimento — Tiques", text:"Capacidade de suprimir por curto período com rebote depois", options: YNP },
-  { type:"checkbox", section:"Neurodesenvolvimento — Tiques", text:"Piora dos tiques com estresse/fadiga/estímulos", options: FREQ5 },
+  // ——— DESENCADENANTES & DIFERENCIAL ———
+  { type:"checkbox", section:"Bipolar — Desencadeantes", text:"Virada maníaca/hipomaníaca após antidepressivo", options: YNP },
+  { type:"checkbox", section:"Bipolar — Desencadeantes", text:"Piora com estimulantes/esteróides (ex.: corticoide)", options: YNP },
+  { type:"checkbox", section:"Bipolar — Desencadeantes", text:"Uso de substâncias com impacto no humor", options: ["Não","Álcool","Cannabis","Estimulantes","Sedativos/ansiolíticos","Outras"] },
+  { type:"checkbox", section:"Bipolar — Diferencial", text:"Oscilações diárias crônicas (≥2 anos) sem episódios definidos (ciclotimia)", options: YNP },
+  { type:"checkbox", section:"Bipolar — Diferencial", text:"Doença clínica neurológica/endócrina que afete humor", options: YNP },
 
-  // ——— MOVIMENTOS ESTEREOTIPADOS ———
-  { type:"checkbox", section:"Neurodesenvolvimento — Movimentos estereotipados", text:"Movimentos repetitivos não funcionais (sacudir mãos, bater)", options: FREQ5 },
-  { type:"checkbox", section:"Neurodesenvolvimento — Movimentos estereotipados", text:"Autoagressão associada (morder-se, bater a cabeça/mãos)", options: YNP },
+  // ——— IMPULSIVIDADE & RISCO ———
+  { type:"checkbox", section:"Bipolar — Impulsividade & Risco", text:"Direção imprudente/decisões arriscadas durante 'altos'", options: FREQ5 },
+  { type:"checkbox", section:"Bipolar — Impulsividade & Risco", text:"Conflitos legais/financeiros decorrentes de episódios", options: YNP },
+  { type:"checkbox", section:"Bipolar — Impulsividade & Risco", text:"Aumento de irritabilidade com explosões verbais/físicas", options: FREQ5 },
 
-  // ——— SENSORIAL ———
-  { type:"checkbox", section:"Neurodesenvolvimento — Sensorial", text:"Hipersensibilidade a sons (barulhos, vozes, ambientes cheios)", options: FREQ5 },
-  { type:"checkbox", section:"Neurodesenvolvimento — Sensorial", text:"Hipersensibilidade a luz/visuais (claridade, padrões)", options: FREQ5 },
-  { type:"checkbox", section:"Neurodesenvolvimento — Sensorial", text:"Hipersensibilidade tátil (tecidos/etiquetas/toque)", options: FREQ5 },
-  { type:"checkbox", section:"Neurodesenvolvimento — Sensorial", text:"Questões com cheiros/sabores/texturas de alimentos", options: FREQ5 },
-  { type:"checkbox", section:"Neurodesenvolvimento — Sensorial", text:"Busca sensorial (cheirar/pegar objetos, pressão profunda)", options: FREQ5 },
+  // ——— FUNCIONAMENTO & DANOS ———
+  { type:"checkbox", section:"Bipolar — Funcionamento", text:"Queda de produtividade no trabalho/estudos", options: FREQ5 },
+  { type:"checkbox", section:"Bipolar — Funcionamento", text:"Rupturas em relações por mudanças de humor", options: FREQ5 },
+  { type:"checkbox", section:"Bipolar — Funcionamento", text:"Prejuízos financeiros (dívidas/gastos) associados a episódios", options: SEVER4 },
+  { type:"checkbox", section:"Bipolar — Funcionamento", text:"Insight limitado durante o episódio; arrependimento após", options: YNP },
 
-  // ——— DI (Deficiência Intelectual) ———
-  { type:"checkbox", section:"Neurodesenvolvimento — DI", text:"Dificuldade para compreender ideias abstratas (tempo, dinheiro, regras)", options: SEVER4 },
-  { type:"checkbox", section:"Neurodesenvolvimento — DI", text:"Necessidade de ajuda para atividades do dia a dia", options: ["Não","Ajuda às vezes","Ajuda frequente","Ajuda o tempo todo","Não sei"] },
-  { type:"checkbox", section:"Neurodesenvolvimento — DI", text:"Adaptação social/profissional limitada mesmo com treino", options: SEVER4 },
-  { type:"checkbox", section:"Neurodesenvolvimento — DI", text:"Dificuldades começaram na infância/adolescência", options: YNP },
+  // ——— COMORBIDADES ———
+  { type:"checkbox", section:"Bipolar — Comorbidades", text:"Ansiedade generalizada/pânico", options: YNP },
+  { type:"checkbox", section:"Bipolar — Comorbidades", text:"TDAH suspeito (desde infância)", options: YNP },
+  { type:"checkbox", section:"Bipolar — Comorbidades", text:"Transtornos por uso de substâncias", options: YNP },
 
-  // ——— FORÇAS & APOIOS ———
-  { type:"checkbox", section:"Neurodesenvolvimento — Forças & Apoios", text:"Habilidades específicas acima da média", options: ["Não","Linguagem","Matemática","Artes","Tecnologia","Psicomotoras","Outras"] },
-  { type:"checkbox", section:"Neurodesenvolvimento — Forças & Apoios", text:"Usa estratégias de compensação (listas, timers, apps, scripts sociais)", options: FREQ5 },
-  { type:"checkbox", section:"Neurodesenvolvimento — Forças & Apoios", text:"Recebe/recebeu adaptações no trabalho/estudo (tempo extra, tarefas divididas)", options: YNP }
+  // ——— FORÇAS & PROTEÇÃO ———
+  { type:"checkbox", section:"Bipolar — Forças & Proteção", text:"Rede de apoio ativa (família/amigos/trabalho)", options: YNP },
+  { type:"checkbox", section:"Bipolar — Forças & Proteção", text:"Estratégias de autocuidado (sono/higiene de rotina)", options: FREQ5 },
+  { type:"checkbox", section:"Bipolar — Forças & Proteção", text:"Adesão a tratamento prévio (psico/psiquiátrico)", options: YNP }
 ];
 
 const N = QUESTIONS.length;
