@@ -281,90 +281,45 @@ function goPortalWithToken(){ const TOKEN=qs("token"); try{ const u=new URL(PORT
 
 // ======== PERGUNTAS ========
 // Escalas padrão
-const FREQ5   = ["Nunca","Raramente","Às vezes","Frequentemente","Quase sempre"];
-const SEVER4  = ["Não","Leve","Moderada","Grave"];
-const YESNO   = ["Sim","Não"];
-const YNP     = ["Sim","Não","Não sei"];
+const FREQ5   = ["Nunca","Raramente","Às vezes","Frequentemente","Quase sempre", "Não se aplica"];
+const SEVER4  = ["Não","Leve","Moderada","Grave", "Não se aplica"];
+const YESNO   = ["Sim","Não", "Não se aplica"];
+const YNP     = ["Sim","Não","Não sei", "Não se aplica"];
 
 
 const QUESTIONS = [
-  { type:"checkbox", section:"Bipolar — Triagem & História", text:"Oscilações marcantes de humor e energia ao longo da vida", options: FREQ5 },
-  { type:"checkbox", section:"Bipolar — Triagem & História", text:"Sintomas iniciaram na adolescência/vida adulta jovem", options: YNP },
-  { type:"checkbox", section:"Bipolar — Triagem & História", text:"Histórico familiar de bipolaridade/suicídio", options: YNP },
-  { type:"checkbox", section:"Bipolar — Triagem & História", text:"Episódios que duram dias/semanas (não apenas horas)", options: YNP },
-  { type:"checkbox", section:"Bipolar — Triagem & História", text:"Prejuízo em ≥2 contextos (casa/trabalho/social) durante episódios", options: YNP },
-
-  // ——— EPISÓDIO MANÍACO/HIPOMANÍACO (núcleo) ———
-  { type:"checkbox", section:"Bipolar — Mania/Hipomania (Núcleo)", text:"Humor elevado/expansivo ou irritável de forma anormal", options: FREQ5 },
-  { type:"checkbox", section:"Bipolar — Mania/Hipomania (Núcleo)", text:"Aumento de energia/atividade dirigida a objetivos", options: FREQ5 },
-  { type:"checkbox", section:"Bipolar — Mania/Hipomania (Núcleo)", text:"Diminuição da necessidade de sono (poucas horas sem cansaço)", options: FREQ5 },
-  { type:"checkbox", section:"Bipolar — Mania/Hipomania (Núcleo)", text:"Grandiosidade/autoestima inflada (sentir-se 'acima do normal')", options: FREQ5 },
-  { type:"checkbox", section:"Bipolar — Mania/Hipomania (Núcleo)", text:"Pressão para falar/verborragia", options: FREQ5 },
-  { type:"checkbox", section:"Bipolar — Mania/Hipomania (Núcleo)", text:"Fuga de ideias/pensamento acelerado", options: FREQ5 },
-  { type:"checkbox", section:"Bipolar — Mania/Hipomania (Núcleo)", text:"Distraibilidade aumentada", options: FREQ5 },
-
-  // ——— EPISÓDIO MANÍACO/HIPOMANÍACO (comportamentos de risco) ———
-  { type:"checkbox", section:"Bipolar — Mania/Hipomania (Risco)", text:"Gastos excessivos/impulsivos", options: FREQ5 },
-  { type:"checkbox", section:"Bipolar — Mania/Hipomania (Risco)", text:"Aumento de comportamento sexual/sexo de risco", options: FREQ5 },
-  { type:"checkbox", section:"Bipolar — Mania/Hipomania (Risco)", text:"Planos grandiosos/decisões ousadas sem avaliar riscos", options: FREQ5 },
-  { type:"checkbox", section:"Bipolar — Mania/Hipomania (Risco)", text:"Apostas/compras/negócios impulsivos", options: FREQ5 },
-
-  // ——— EPISÓDIO DEPRESSIVO ———
-  { type:"checkbox", section:"Bipolar — Depressivo", text:"Humor deprimido e/ou perda de interesse (anedonia)", options: FREQ5 },
-  { type:"checkbox", section:"Bipolar — Depressivo", text:"Fadiga/queda de energia", options: FREQ5 },
-  { type:"checkbox", section:"Bipolar — Depressivo", text:"Culpa excessiva/autoacusação", options: FREQ5 },
-  { type:"checkbox", section:"Bipolar — Depressivo", text:"Dificuldade de concentração/indecisão", options: FREQ5 },
-  { type:"checkbox", section:"Bipolar — Depressivo", text:"Alterações do sono (insônia ou hipersonia)", options: FREQ5 },
-  { type:"checkbox", section:"Bipolar — Depressivo", text:"Alterações de apetite/peso", options: FREQ5 },
-  { type:"checkbox", section:"Bipolar — Depressivo", text:"Ideação suicida ou autoagressão", options: YNP },
-
-  // ——— CARACTERÍSTICAS MISTAS ———
-  { type:"checkbox", section:"Bipolar — Características Mistas", text:"Sintomas maníacos e depressivos ao mesmo tempo", options: YNP },
-  { type:"checkbox", section:"Bipolar — Características Mistas", text:"Agitação/insônia + humor deprimido/culpa", options: FREQ5 },
-
-  // ——— SONO & RITMO CIRCADIANO ———
-  { type:"checkbox", section:"Bipolar — Sono & Ritmo", text:"Privação de sono precipita episódios", options: YNP },
-  { type:"checkbox", section:"Bipolar — Sono & Ritmo", text:"Padrão sono-vigília irregular (jet lag, turnos)", options: FREQ5 },
-  { type:"checkbox", section:"Bipolar — Sono & Ritmo", text:"Ciclos de alta/baixa energia em padrão sazonal", options: YNP },
-
-  // ——— PSICOSE (avaliar congruência com humor) ———
-  { type:"checkbox", section:"Bipolar — Psicose", text:"Ideias delirantes ou alucinações durante episódios", options: YNP },
-  { type:"checkbox", section:"Bipolar — Psicose", text:"Sintomas psicóticos congruentes com humor (grandeza/culpa)", options: YNP },
-  { type:"checkbox", section:"Bipolar — Psicose", text:"Sintomas psicóticos incongruentes com humor", options: YNP },
-
-  // ——— CURSO & ESPECIFICADORES ———
-  { type:"checkbox", section:"Bipolar — Curso", text:"Ciclagem rápida (≥4 episódios/ano) suspeita", options: YNP },
-  { type:"checkbox", section:"Bipolar — Curso", text:"Padrão periparto/puerpério (início no pós-parto)", options: YNP },
-  { type:"checkbox", section:"Bipolar — Curso", text:"Episódios exigiram hospitalização ou afastamento", options: YNP },
-  { type:"checkbox", section:"Bipolar — Curso", text:"Períodos de remissão completa entre episódios", options: YNP },
-
-  // ——— DESENCADENANTES & DIFERENCIAL ———
-  { type:"checkbox", section:"Bipolar — Desencadeantes", text:"Virada maníaca/hipomaníaca após antidepressivo", options: YNP },
-  { type:"checkbox", section:"Bipolar — Desencadeantes", text:"Piora com estimulantes/esteróides (ex.: corticoide)", options: YNP },
-  { type:"checkbox", section:"Bipolar — Desencadeantes", text:"Uso de substâncias com impacto no humor", options: ["Não","Álcool","Cannabis","Estimulantes","Sedativos/ansiolíticos","Outras"] },
-  { type:"checkbox", section:"Bipolar — Diferencial", text:"Oscilações diárias crônicas (≥2 anos) sem episódios definidos (ciclotimia)", options: YNP },
-  { type:"checkbox", section:"Bipolar — Diferencial", text:"Doença clínica neurológica/endócrina que afete humor", options: YNP },
-
-  // ——— IMPULSIVIDADE & RISCO ———
-  { type:"checkbox", section:"Bipolar — Impulsividade & Risco", text:"Direção imprudente/decisões arriscadas durante 'altos'", options: FREQ5 },
-  { type:"checkbox", section:"Bipolar — Impulsividade & Risco", text:"Conflitos legais/financeiros decorrentes de episódios", options: YNP },
-  { type:"checkbox", section:"Bipolar — Impulsividade & Risco", text:"Aumento de irritabilidade com explosões verbais/físicas", options: FREQ5 },
-
-  // ——— FUNCIONAMENTO & DANOS ———
-  { type:"checkbox", section:"Bipolar — Funcionamento", text:"Queda de produtividade no trabalho/estudos", options: FREQ5 },
-  { type:"checkbox", section:"Bipolar — Funcionamento", text:"Rupturas em relações por mudanças de humor", options: FREQ5 },
-  { type:"checkbox", section:"Bipolar — Funcionamento", text:"Prejuízos financeiros (dívidas/gastos) associados a episódios", options: SEVER4 },
-  { type:"checkbox", section:"Bipolar — Funcionamento", text:"Insight limitado durante o episódio; arrependimento após", options: YNP },
-
-  // ——— COMORBIDADES ———
-  { type:"checkbox", section:"Bipolar — Comorbidades", text:"Ansiedade generalizada/pânico", options: YNP },
-  { type:"checkbox", section:"Bipolar — Comorbidades", text:"TDAH suspeito (desde infância)", options: YNP },
-  { type:"checkbox", section:"Bipolar — Comorbidades", text:"Transtornos por uso de substâncias", options: YNP },
-
-  // ——— FORÇAS & PROTEÇÃO ———
-  { type:"checkbox", section:"Bipolar — Forças & Proteção", text:"Rede de apoio ativa (família/amigos/trabalho)", options: YNP },
-  { type:"checkbox", section:"Bipolar — Forças & Proteção", text:"Estratégias de autocuidado (sono/higiene de rotina)", options: FREQ5 },
-  { type:"checkbox", section:"Bipolar — Forças & Proteção", text:"Adesão a tratamento prévio (psico/psiquiátrico)", options: YNP }
+  { type:"radio", text:"Meu humor e minha energia mudam bastante entre fases de alta e fases de baixa.", options: YESNO },
+  { type:"radio", text:"Quando eu estou na fase de alta, eu fico muito mais ativo(a) e com muito mais energia do que o meu normal.", options: YESNO },
+  { type:"radio", text:"Quando eu estou na fase de alta, meu humor fica muito elevado (muito “pra cima”) ou muito irritado(a).", options: YESNO },
+  { type:"radio", text:"Quando eu estou na fase de alta, eu durmo bem menos do que o normal e mesmo assim me sinto bem e cheio(a) de energia.", options: YESNO },
+  { type:"radio", text:"Quando eu estou na fase de alta, eu falo muito mais do que o normal ou sinto que não consigo parar de falar.", options: YESNO },
+  { type:"radio", text:"Quando eu estou na fase de alta, minha mente fica acelerada (pensamentos a mil).", options: YESNO },
+  { type:"radio", text:"Quando eu estou na fase de alta, eu me distraio muito fácil com coisas pequenas.", options: YESNO },
+  { type:"radio", text:"Quando eu estou na fase de alta, eu assumo muitas tarefas ao mesmo tempo e tenho dificuldade de desacelerar.", options: YESNO },
+  { type:"radio", text:"Quando eu estou na fase de alta, eu me sinto mais confiante do que o normal (às vezes confiante demais).", options: YESNO },
+  { type:"radio", text:"Quando eu estou na fase de alta, eu fico mais sociável e falante do que o meu normal.", options: YESNO },
+  { type:"radio", text:"Quando eu estou na fase de alta, eu faço coisas impulsivas que podem dar problema (gastos, sexo, decisões arriscadas) e depois me arrependo.", options: YESNO },
+  { type:"radio", text:"As minhas fases de alta costumam durar dias ou semanas.", options: YESNO },
+  { type:"radio", text:"Em alguma fase de alta, eu já tive delírios ou alucinações (ver/ouvir coisas, ou ter certezas muito fora da realidade).", options: YESNO },
+  { type:"radio", text:"Em alguma fase de alta, eu já precisei de hospitalização (ou alguém disse que eu precisava) por causa do meu comportamento ou risco.", options: YESNO },
+  { type:"radio", text:"Quando eu estou na fase de baixa, eu fico sem energia, desanimado(a) ou mais lento(a) do que o meu normal.", options: YESNO },
+  { type:"radio", text:"Quando eu estou na fase de baixa, eu sinto tristeza, vazio ou desesperança com frequência.", options: YESNO },
+  { type:"radio", text:"Quando eu estou na fase de baixa, eu perco muito o interesse ou prazer pelas coisas.", options: YESNO },
+  { type:"radio", text:"Quando eu estou na fase de baixa, meu apetite ou meu peso mudam bastante (para mais ou para menos).", options: YESNO },
+  { type:"radio", text:"Quando eu estou na fase de baixa, eu fico muito agitado(a) ou muito lento(a), e outras pessoas percebem isso.", options: YESNO },
+  { type:"radio", text:"Quando eu estou na fase de baixa, eu me sinto inútil ou com culpa exagerada.", options: YESNO },
+  { type:"radio", text:"Quando eu estou na fase de baixa, eu tenho muita dificuldade para pensar, me concentrar ou tomar decisões.", options: YESNO },
+  { type:"radio", text:"Quando eu estou na fase de baixa, eu tenho pensamentos de morte ou ideias de suicídio.", options: YESNO },
+  { type:"radio", text:"As minhas fases de baixa costumam durar dias ou semanas.", options: YESNO },
+  { type:"radio", text:"O meu sono muda claramente nessas fases (na alta eu durmo menos; na baixa eu durmo demais ou tenho insônia).", options: YESNO },
+  { type:"radio", text:"Essas fases (de alta ou de baixa) atrapalham minha vida de forma clara (trabalho/estudos/rotina/relacionamentos).", options: YESNO },
+  { type:"radio", text:"Em alguma fase (alta ou baixa), eu já tive problemas sérios com trabalho, família, colegas ou até com a lei.", options: YESNO },
+  { type:"radio", text:"Eu acho que essas fases podem ser explicadas principalmente por álcool, drogas, remédios ou por algum problema de saúde.", options: YESNO },
+  { type:"radio", text:"Essas oscilações de humor acontecem comigo há pelo menos 2 anos (ou 1 ano se eu for criança/adolescente).", options: YESNO },
+  { type:"radio", text:"Nesse período, eu fiquei com sintomas (mesmo que leves) em pelo menos metade do tempo.", options: YESNO },
+  { type:"radio", text:"Nesse período, eu quase nunca fiquei mais de 2 meses seguidos totalmente sem sintomas.", options: YESNO },
+  { type:"radio", text:"Além dessas oscilações de humor, eu também tenho sintomas de ansiedade (preocupação, tensão, nervosismo).", options: YESNO },
+  { type:"radio", text:"Em alguma fase, eu aumentei o uso de álcool ou drogas por causa do meu estado emocional ou energia.", options: YESNO }
 ];
 
 
