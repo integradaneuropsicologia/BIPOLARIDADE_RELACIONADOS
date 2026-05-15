@@ -288,40 +288,527 @@ const YNP     = ["Sim","Não","Não sei", "Não se aplica"];
 
 
 const QUESTIONS = [
-  { type:"radio", text:"Meu humor e minha energia mudam bastante entre fases de alta e fases de baixa.", options: YESNO },
-  { type:"radio", text:"Quando eu estou na fase de alta, eu fico muito mais ativo(a) e com muito mais energia do que o meu normal.", options: YESNO },
-  { type:"radio", text:"Quando eu estou na fase de alta, meu humor fica muito elevado (muito “pra cima”) ou muito irritado(a).", options: YESNO },
-  { type:"radio", text:"Quando eu estou na fase de alta, eu durmo bem menos do que o normal e mesmo assim me sinto bem e cheio(a) de energia.", options: YESNO },
-  { type:"radio", text:"Quando eu estou na fase de alta, eu falo muito mais do que o normal ou sinto que não consigo parar de falar.", options: YESNO },
-  { type:"radio", text:"Quando eu estou na fase de alta, minha mente fica acelerada (pensamentos a mil).", options: YESNO },
-  { type:"radio", text:"Quando eu estou na fase de alta, eu me distraio muito fácil com coisas pequenas.", options: YESNO },
-  { type:"radio", text:"Quando eu estou na fase de alta, eu assumo muitas tarefas ao mesmo tempo e tenho dificuldade de desacelerar.", options: YESNO },
-  { type:"radio", text:"Quando eu estou na fase de alta, eu me sinto mais confiante do que o normal (às vezes confiante demais).", options: YESNO },
-  { type:"radio", text:"Quando eu estou na fase de alta, eu fico mais sociável e falante do que o meu normal.", options: YESNO },
-  { type:"radio", text:"Quando eu estou na fase de alta, eu faço coisas impulsivas que podem dar problema (gastos, sexo, decisões arriscadas) e depois me arrependo.", options: YESNO },
-  { type:"radio", text:"As minhas fases de alta costumam durar dias ou semanas.", options: YESNO },
-  { type:"radio", text:"Em alguma fase de alta, eu já tive delírios ou alucinações (ver/ouvir coisas, ou ter certezas muito fora da realidade).", options: YESNO },
-  { type:"radio", text:"Em alguma fase de alta, eu já precisei de hospitalização (ou alguém disse que eu precisava) por causa do meu comportamento ou risco.", options: YESNO },
-  { type:"radio", text:"Quando eu estou na fase de baixa, eu fico sem energia, desanimado(a) ou mais lento(a) do que o meu normal.", options: YESNO },
-  { type:"radio", text:"Quando eu estou na fase de baixa, eu sinto tristeza, vazio ou desesperança com frequência.", options: YESNO },
-  { type:"radio", text:"Quando eu estou na fase de baixa, eu perco muito o interesse ou prazer pelas coisas.", options: YESNO },
-  { type:"radio", text:"Quando eu estou na fase de baixa, meu apetite ou meu peso mudam bastante (para mais ou para menos).", options: YESNO },
-  { type:"radio", text:"Quando eu estou na fase de baixa, eu fico muito agitado(a) ou muito lento(a), e outras pessoas percebem isso.", options: YESNO },
-  { type:"radio", text:"Quando eu estou na fase de baixa, eu me sinto inútil ou com culpa exagerada.", options: YESNO },
-  { type:"radio", text:"Quando eu estou na fase de baixa, eu tenho muita dificuldade para pensar, me concentrar ou tomar decisões.", options: YESNO },
-  { type:"radio", text:"Quando eu estou na fase de baixa, eu tenho pensamentos de morte ou ideias de suicídio.", options: YESNO },
-  { type:"radio", text:"As minhas fases de baixa costumam durar dias ou semanas.", options: YESNO },
-  { type:"radio", text:"O meu sono muda claramente nessas fases (na alta eu durmo menos; na baixa eu durmo demais ou tenho insônia).", options: YESNO },
-  { type:"radio", text:"Essas fases (de alta ou de baixa) atrapalham minha vida de forma clara (trabalho/estudos/rotina/relacionamentos).", options: YESNO },
-  { type:"radio", text:"Em alguma fase (alta ou baixa), eu já tive problemas sérios com trabalho, família, colegas ou até com a lei.", options: YESNO },
-  { type:"radio", text:"Eu acho que essas fases podem ser explicadas principalmente por álcool, drogas, remédios ou por algum problema de saúde.", options: YESNO },
-  { type:"radio", text:"Essas oscilações de humor acontecem comigo há pelo menos 2 anos (ou 1 ano se eu for criança/adolescente).", options: YESNO },
-  { type:"radio", text:"Nesse período, eu fiquei com sintomas (mesmo que leves) em pelo menos metade do tempo.", options: YESNO },
-  { type:"radio", text:"Nesse período, eu quase nunca fiquei mais de 2 meses seguidos totalmente sem sintomas.", options: YESNO },
-  { type:"radio", text:"Além dessas oscilações de humor, eu também tenho sintomas de ansiedade (preocupação, tensão, nervosismo).", options: YESNO },
-  { type:"radio", text:"Em alguma fase, eu aumentei o uso de álcool ou drogas por causa do meu estado emocional ou energia.", options: YESNO }
-];
+  {
+    type:"radio",
+    section:"Triagem Inicial",
+    text:"Você já teve períodos em que seu humor ficou anormalmente elevado, expansivo, eufórico ou muito irritado, junto com aumento claro de energia ou atividade, de forma diferente do seu funcionamento habitual?",
+    options:YNP
+  },
+  {
+    type:"radio",
+    section:"Triagem Inicial",
+    text:"Você já teve períodos em que outras pessoas perceberam que você estava muito mais acelerado, ativo, falante, confiante, impulsivo ou irritado do que o seu normal?",
+    options:YNP
+  },
+  {
+    type:"radio",
+    section:"Triagem Inicial",
+    text:"Você já teve períodos de humor elevado, irritado ou acelerado que causaram prejuízo claro no trabalho, nos estudos, nos relacionamentos, na família, nas finanças ou na rotina?",
+    options:YNP
+  },
+  {
+    type:"radio",
+    section:"Triagem Inicial",
+    text:"Você já teve períodos de depressão, desânimo intenso ou perda de interesse que duraram vários dias ou semanas e prejudicaram sua vida?",
+    options:YNP
+  },
 
+  {
+    type:"radio",
+    section:"Episódios de Elevação do Humor",
+    text:"Você já teve períodos em que ficou muito mais animado, eufórico, expansivo ou confiante do que costuma ser?",
+    options:FREQ5
+  },
+  {
+    type:"radio",
+    section:"Episódios de Elevação do Humor",
+    text:"Você já teve períodos em que ficou muito mais irritado, impaciente, explosivo ou intolerante do que costuma ser?",
+    options:FREQ5
+  },
+  {
+    type:"radio",
+    section:"Episódios de Elevação do Humor",
+    text:"Você já teve períodos em que ficou com muito mais energia, disposição ou necessidade de fazer coisas do que o seu normal?",
+    options:FREQ5
+  },
+  {
+    type:"radio",
+    section:"Episódios de Elevação do Humor",
+    text:"Você já teve períodos em que começou muitos projetos, tarefas, planos ou atividades ao mesmo tempo porque se sentia muito energizado ou acelerado?",
+    options:FREQ5
+  },
+  {
+    type:"radio",
+    section:"Episódios de Elevação do Humor",
+    text:"Você já teve períodos em que se sentiu muito produtivo, poderoso, especial, criativo ou capaz, em um grau acima do seu padrão habitual?",
+    options:FREQ5
+  },
+
+  {
+    type:"radio",
+    section:"Duração dos Episódios de Alta",
+    text:"O período mais intenso em que você ficou com humor elevado, irritado ou acelerado durou pelo menos 4 dias seguidos?",
+    options:YNP
+  },
+  {
+    type:"radio",
+    section:"Duração dos Episódios de Alta",
+    text:"O período mais intenso em que você ficou com humor elevado, irritado ou acelerado durou pelo menos 1 semana?",
+    options:YNP
+  },
+  {
+    type:"radio",
+    section:"Duração dos Episódios de Alta",
+    text:"Durante o período de humor elevado, irritado ou acelerado, os sintomas estavam presentes na maior parte do dia, quase todos os dias?",
+    options:YNP
+  },
+  {
+    type:"radio",
+    section:"Duração dos Episódios de Alta",
+    text:"Você já precisou de hospitalização, atendimento de urgência, afastamento ou supervisão familiar por causa de um período de humor elevado, irritado, acelerado ou impulsivo?",
+    options:YNP
+  },
+
+  {
+    type:"radio",
+    section:"Sono e Energia",
+    text:"Durante períodos de humor elevado, irritado ou acelerado, você dormia bem menos do que o habitual e mesmo assim acordava disposto, energizado ou sem cansaço?",
+    options:FREQ5
+  },
+  {
+    type:"radio",
+    section:"Sono e Energia",
+    text:"Durante períodos de humor elevado, irritado ou acelerado, você sentia menor necessidade de dormir, como se poucas horas de sono fossem suficientes?",
+    options:FREQ5
+  },
+  {
+    type:"radio",
+    section:"Sono e Energia",
+    text:"Durante períodos de humor elevado, irritado ou acelerado, você ficava sem dormir ou dormia muito pouco porque estava cheio de energia, ideias ou planos?",
+    options:FREQ5
+  },
+  {
+    type:"radio",
+    section:"Sono e Energia",
+    text:"Quando você dorme pouco, você fica energizado e disposto, em vez de cansado, esgotado ou apenas ansioso?",
+    options:FREQ5
+  },
+
+  {
+    type:"radio",
+    section:"Fala e Pensamento Acelerado",
+    text:"Durante períodos de humor elevado, irritado ou acelerado, você falava muito mais do que o normal ou sentia dificuldade de parar de falar?",
+    options:FREQ5
+  },
+  {
+    type:"radio",
+    section:"Fala e Pensamento Acelerado",
+    text:"Durante períodos de humor elevado, irritado ou acelerado, outras pessoas diziam que você estava falando rápido demais, demais ou mudando muito de assunto?",
+    options:FREQ5
+  },
+  {
+    type:"radio",
+    section:"Fala e Pensamento Acelerado",
+    text:"Durante períodos de humor elevado, irritado ou acelerado, seus pensamentos ficavam muito rápidos, como se várias ideias viessem ao mesmo tempo?",
+    options:FREQ5
+  },
+  {
+    type:"radio",
+    section:"Fala e Pensamento Acelerado",
+    text:"Durante períodos de humor elevado, irritado ou acelerado, você sentia que sua mente estava funcionando rápido demais e era difícil desacelerar?",
+    options:FREQ5
+  },
+
+  {
+    type:"radio",
+    section:"Grandiosidade e Autoconfiança",
+    text:"Durante períodos de humor elevado, irritado ou acelerado, você se sentia muito mais confiante, poderoso, importante ou especial do que costuma se sentir?",
+    options:FREQ5
+  },
+  {
+    type:"radio",
+    section:"Grandiosidade e Autoconfiança",
+    text:"Durante períodos de humor elevado, irritado ou acelerado, você acreditava que tinha capacidades, ideias, talentos ou planos muito acima do comum?",
+    options:FREQ5
+  },
+  {
+    type:"radio",
+    section:"Grandiosidade e Autoconfiança",
+    text:"Durante períodos de humor elevado, irritado ou acelerado, você assumia compromissos, decisões ou riscos porque se sentia extremamente capaz ou seguro de si?",
+    options:FREQ5
+  },
+  {
+    type:"radio",
+    section:"Grandiosidade e Autoconfiança",
+    text:"Durante períodos de humor elevado, irritado ou acelerado, outras pessoas diziam que sua autoconfiança estava exagerada ou fora do seu padrão habitual?",
+    options:FREQ5
+  },
+
+  {
+    type:"radio",
+    section:"Distraibilidade e Agitação",
+    text:"Durante períodos de humor elevado, irritado ou acelerado, você se distraía com muita facilidade por estímulos pequenos, ideias novas ou coisas ao redor?",
+    options:FREQ5
+  },
+  {
+    type:"radio",
+    section:"Distraibilidade e Agitação",
+    text:"Durante períodos de humor elevado, irritado ou acelerado, você ficava inquieto, agitado, andando muito, mexendo-se muito ou sem conseguir ficar parado?",
+    options:FREQ5
+  },
+  {
+    type:"radio",
+    section:"Distraibilidade e Agitação",
+    text:"Durante períodos de humor elevado, irritado ou acelerado, você tinha dificuldade de concluir uma atividade porque começava outra rapidamente?",
+    options:FREQ5
+  },
+
+  {
+    type:"radio",
+    section:"Impulsividade e Risco",
+    text:"Durante períodos de humor elevado, irritado ou acelerado, você fez gastos excessivos, compras impulsivas, dívidas ou decisões financeiras arriscadas?",
+    options:FREQ5
+  },
+  {
+    type:"radio",
+    section:"Impulsividade e Risco",
+    text:"Durante períodos de humor elevado, irritado ou acelerado, você teve aumento importante de desejo sexual, busca por sexo, exposição sexual ou comportamento sexual de risco?",
+    options:FREQ5
+  },
+  {
+    type:"radio",
+    section:"Impulsividade e Risco",
+    text:"Durante períodos de humor elevado, irritado ou acelerado, você tomou decisões profissionais, familiares, afetivas ou financeiras sem avaliar bem as consequências?",
+    options:FREQ5
+  },
+  {
+    type:"radio",
+    section:"Impulsividade e Risco",
+    text:"Durante períodos de humor elevado, irritado ou acelerado, você dirigiu de forma imprudente, brigou, discutiu, provocou conflitos ou assumiu riscos incomuns?",
+    options:FREQ5
+  },
+  {
+    type:"radio",
+    section:"Impulsividade e Risco",
+    text:"Durante períodos de humor elevado, irritado ou acelerado, você fez coisas que depois pareceram exageradas, inadequadas, arriscadas ou prejudiciais?",
+    options:FREQ5
+  },
+
+  {
+    type:"radio",
+    section:"Prejuízo na Fase de Alta",
+    text:"Durante períodos de humor elevado, irritado ou acelerado, houve prejuízo no trabalho, estudos, produtividade, finanças, família, relacionamentos ou vida social?",
+    options:YNP
+  },
+  {
+    type:"radio",
+    section:"Prejuízo na Fase de Alta",
+    text:"Durante períodos de humor elevado, irritado ou acelerado, outras pessoas ficaram preocupadas com suas atitudes, decisões, gastos, irritabilidade ou falta de sono?",
+    options:YNP
+  },
+  {
+    type:"radio",
+    section:"Prejuízo na Fase de Alta",
+    text:"Durante períodos de humor elevado, irritado ou acelerado, você teve consequências sérias, como término de relacionamento, dívida, afastamento, demissão, briga grave, problema legal ou exposição social?",
+    options:YNP
+  },
+  {
+    type:"radio",
+    section:"Prejuízo na Fase de Alta",
+    text:"Qual foi a gravidade do prejuízo causado pelos períodos de humor elevado, irritado, acelerado ou impulsivo?",
+    options:SEVER4
+  },
+
+  {
+    type:"radio",
+    section:"Sintomas Psicóticos na Fase de Alta",
+    text:"Durante períodos de humor elevado, irritado ou acelerado, você teve certeza de possuir uma missão especial, poderes, importância extraordinária ou capacidade muito acima da realidade?",
+    options:YNP
+  },
+  {
+    type:"radio",
+    section:"Sintomas Psicóticos na Fase de Alta",
+    text:"Durante períodos de humor elevado, irritado ou acelerado, você acreditou estar sendo perseguido, vigiado, controlado, traído ou ameaçado sem provas claras?",
+    options:YNP
+  },
+  {
+    type:"radio",
+    section:"Sintomas Psicóticos na Fase de Alta",
+    text:"Durante períodos de humor elevado, irritado ou acelerado, você ouviu vozes, viu coisas ou percebeu sinais especiais que outras pessoas não percebiam?",
+    options:YNP
+  },
+  {
+    type:"radio",
+    section:"Sintomas Psicóticos na Fase de Alta",
+    text:"Durante períodos de humor elevado, irritado ou acelerado, outras pessoas disseram que você estava fora da realidade, delirante ou com comportamento muito estranho?",
+    options:YNP
+  },
+
+  {
+    type:"radio",
+    section:"Episódios Depressivos",
+    text:"Você já teve períodos de pelo menos 2 semanas em que se sentiu deprimido, triste, vazio, sem esperança ou desanimado na maior parte do dia?",
+    options:YNP
+  },
+  {
+    type:"radio",
+    section:"Episódios Depressivos",
+    text:"Você já teve períodos de pelo menos 2 semanas em que perdeu claramente o interesse ou o prazer pelas coisas que antes gostava?",
+    options:YNP
+  },
+  {
+    type:"radio",
+    section:"Episódios Depressivos",
+    text:"Durante períodos depressivos, você teve queda importante de energia, cansaço intenso ou lentidão para realizar tarefas simples?",
+    options:FREQ5
+  },
+  {
+    type:"radio",
+    section:"Episódios Depressivos",
+    text:"Durante períodos depressivos, seu sono mudou de forma importante, com insônia, sono excessivo ou sono não reparador?",
+    options:FREQ5
+  },
+  {
+    type:"radio",
+    section:"Episódios Depressivos",
+    text:"Durante períodos depressivos, seu apetite ou peso mudou de forma importante, para mais ou para menos?",
+    options:FREQ5
+  },
+  {
+    type:"radio",
+    section:"Episódios Depressivos",
+    text:"Durante períodos depressivos, você se sentiu inútil, fracassado, sem valor ou com culpa excessiva?",
+    options:FREQ5
+  },
+  {
+    type:"radio",
+    section:"Episódios Depressivos",
+    text:"Durante períodos depressivos, você teve dificuldade importante para pensar, se concentrar, decidir ou manter produtividade?",
+    options:FREQ5
+  },
+  {
+    type:"radio",
+    section:"Episódios Depressivos",
+    text:"Durante períodos depressivos, outras pessoas perceberam que você estava muito mais lento, abatido, agitado ou diferente do habitual?",
+    options:FREQ5
+  },
+  {
+    type:"radio",
+    section:"Episódios Depressivos",
+    text:"Durante períodos depressivos, você teve pensamentos de morte, vontade de desaparecer, ideias suicidas ou tentativa de suicídio?",
+    options:YNP
+  },
+  {
+    type:"radio",
+    section:"Episódios Depressivos",
+    text:"Durante períodos depressivos, houve prejuízo no trabalho, estudos, relacionamentos, autocuidado, família ou rotina diária?",
+    options:YNP
+  },
+
+  {
+    type:"radio",
+    section:"Alternância Entre Fases",
+    text:"Você percebe alternância entre períodos de humor elevado, irritado ou acelerado e períodos de depressão, desânimo ou perda de interesse?",
+    options:YNP
+  },
+  {
+    type:"radio",
+    section:"Alternância Entre Fases",
+    text:"Entre os períodos de alta energia e os períodos depressivos, você volta completamente ao seu funcionamento habitual?",
+    options:YNP
+  },
+  {
+    type:"radio",
+    section:"Alternância Entre Fases",
+    text:"Você tem períodos de estabilidade, mas depois volta a apresentar fases de alta energia, irritabilidade, impulsividade ou depressão?",
+    options:YNP
+  },
+  {
+    type:"radio",
+    section:"Alternância Entre Fases",
+    text:"Pessoas próximas conseguem identificar mudanças claras entre seu funcionamento habitual, suas fases de alta e suas fases de baixa?",
+    options:YNP
+  },
+
+  {
+    type:"radio",
+    section:"Ciclotimia",
+    text:"Há pelo menos 2 anos você apresenta oscilações frequentes entre sintomas de elevação de humor e sintomas depressivos, mesmo que nenhum episódio tenha sido extremo?",
+    options:YNP
+  },
+  {
+    type:"radio",
+    section:"Ciclotimia",
+    text:"Nos últimos 2 anos, você passou pelo menos metade do tempo com sintomas de oscilação de humor, energia, irritabilidade, impulsividade ou depressão?",
+    options:YNP
+  },
+  {
+    type:"radio",
+    section:"Ciclotimia",
+    text:"Nos últimos 2 anos, você raramente ficou mais de 2 meses seguidos completamente sem sintomas de oscilação de humor, energia ou depressão?",
+    options:YNP
+  },
+  {
+    type:"radio",
+    section:"Ciclotimia",
+    text:"Essas oscilações crônicas de humor causam prejuízo ou sofrimento mesmo quando não chegam a uma fase muito grave?",
+    options:YNP
+  },
+
+  {
+    type:"radio",
+    section:"Diferencial com TDAH",
+    text:"Sua impulsividade, fala excessiva, inquietação ou distração existem desde a infância e aparecem de forma contínua, sem depender de fases claras de humor elevado ou depressivo?",
+    options:YNP
+  },
+  {
+    type:"radio",
+    section:"Diferencial com TDAH",
+    text:"Sua desatenção, impulsividade ou inquietação piora principalmente em períodos de humor elevado, irritado, acelerado ou com redução da necessidade de sono?",
+    options:YNP
+  },
+  {
+    type:"radio",
+    section:"Diferencial com TDAH",
+    text:"Você apresenta períodos bem definidos em que fica diferente do seu padrão habitual, com aumento de energia, menor necessidade de sono, fala aumentada, impulsividade e autoconfiança elevada?",
+    options:YNP
+  },
+
+  {
+    type:"radio",
+    section:"Diferencial com Ansiedade",
+    text:"Quando você dorme pouco, isso acontece principalmente porque está preocupado, tenso ou ruminando, e no dia seguinte você se sente cansado?",
+    options:YNP
+  },
+  {
+    type:"radio",
+    section:"Diferencial com Ansiedade",
+    text:"Quando sua mente fica acelerada, isso acontece principalmente por preocupação, medo, tensão ou antecipação de problemas?",
+    options:YNP
+  },
+  {
+    type:"radio",
+    section:"Diferencial com Ansiedade",
+    text:"Você já teve períodos de pouca necessidade de sono com energia aumentada, mesmo sem estar preocupado ou ansioso?",
+    options:YNP
+  },
+
+  {
+    type:"radio",
+    section:"Diferencial com Personalidade Borderline",
+    text:"Suas mudanças de humor costumam durar minutos ou horas e acontecer principalmente após rejeição, crítica, frustração, medo de abandono ou conflito interpessoal?",
+    options:YNP
+  },
+  {
+    type:"radio",
+    section:"Diferencial com Personalidade Borderline",
+    text:"Suas fases de humor elevado, irritado ou acelerado duram vários dias seguidos, mesmo sem relação direta com rejeição, crítica ou conflito interpessoal?",
+    options:YNP
+  },
+  {
+    type:"radio",
+    section:"Diferencial com Personalidade Borderline",
+    text:"Sua impulsividade acontece principalmente quando você se sente rejeitado, abandonado, vazio, com raiva ou emocionalmente ferido?",
+    options:YNP
+  },
+
+  {
+    type:"radio",
+    section:"Diferencial com Substâncias e Medicações",
+    text:"Os períodos de humor elevado, irritado, acelerado, impulsivo ou com pouca necessidade de sono começaram ou pioraram claramente após uso de álcool, maconha, cocaína, anfetaminas, estimulantes, anabolizantes ou outras drogas?",
+    options:YNP
+  },
+  {
+    type:"radio",
+    section:"Diferencial com Substâncias e Medicações",
+    text:"Os períodos de humor elevado, irritado, acelerado, impulsivo ou com pouca necessidade de sono começaram ou pioraram claramente após iniciar, aumentar ou trocar antidepressivos, estimulantes, corticoides, hormônios ou outras medicações?",
+    options:YNP
+  },
+  {
+    type:"radio",
+    section:"Diferencial com Substâncias e Medicações",
+    text:"Você já ficou mais acelerado, impulsivo, irritado, sem sono ou eufórico depois de iniciar ou aumentar antidepressivo?",
+    options:YNP
+  },
+  {
+    type:"radio",
+    section:"Diferencial com Substâncias e Medicações",
+    text:"Os sintomas de humor elevado, irritado, acelerado ou impulsivo permaneceram mesmo depois de suspender substâncias, álcool, drogas ou medicações relacionadas?",
+    options:YNP
+  },
+
+  {
+    type:"radio",
+    section:"Diferencial com Condições Médicas",
+    text:"Os períodos de humor elevado, irritado, acelerado, impulsivo ou com pouca necessidade de sono começaram ou pioraram junto com doença neurológica, convulsão, traumatismo craniano, alteração hormonal, hipertireoidismo, infecção ou outra condição médica importante?",
+    options:YNP
+  },
+  {
+    type:"radio",
+    section:"Diferencial com Condições Médicas",
+    text:"Você já investigou causas médicas para alterações intensas de humor, energia, sono, irritabilidade, aceleração ou impulsividade?",
+    options:YNP
+  },
+
+  {
+    type:"radio",
+    section:"História Familiar",
+    text:"Há familiares com diagnóstico de transtorno bipolar, ciclotimia, mania, hipomania, depressão recorrente, internação psiquiátrica, surtos ou uso de estabilizador de humor?",
+    options:YNP
+  },
+  {
+    type:"radio",
+    section:"História Familiar",
+    text:"Há familiares que apresentaram períodos de muita energia, pouca necessidade de sono, gastos excessivos, impulsividade, euforia, irritabilidade intensa ou depressão recorrente?",
+    options:YNP
+  },
+
+  {
+    type:"radio",
+    section:"Confirmação por Outra Pessoa",
+    text:"Uma pessoa próxima confirmaria que você já teve períodos de vários dias em que ficou muito mais energizado, acelerado, falante, impulsivo ou irritado do que o normal?",
+    options:YNP
+  },
+  {
+    type:"radio",
+    section:"Confirmação por Outra Pessoa",
+    text:"Uma pessoa próxima confirmaria que você já teve períodos em que dormiu muito menos e mesmo assim ficou com muita energia ou atividade aumentada?",
+    options:YNP
+  },
+  {
+    type:"radio",
+    section:"Confirmação por Outra Pessoa",
+    text:"Uma pessoa próxima confirmaria que suas fases de alta energia, irritabilidade ou impulsividade causaram prejuízos, conflitos ou preocupação?",
+    options:YNP
+  },
+  {
+    type:"radio",
+    section:"Confirmação por Outra Pessoa",
+    text:"Uma pessoa próxima confirmaria que você já teve períodos depressivos com tristeza, desânimo, isolamento, perda de interesse ou queda importante de funcionamento?",
+    options:YNP
+  },
+
+  {
+    type:"input",
+    section:"Descrição Clínica",
+    text:"Informe sua idade quando ocorreu o primeiro período claro de humor elevado, irritado, acelerado, impulsivo ou com pouca necessidade de sono."
+  },
+  {
+    type:"input",
+    section:"Descrição Clínica",
+    text:"Informe quanto tempo durou o período mais intenso de humor elevado, irritado, acelerado, impulsivo ou com pouca necessidade de sono."
+  },
+  {
+    type:"input",
+    section:"Descrição Clínica",
+    text:"Descreva o período mais intenso de humor elevado, irritado ou acelerado: informe como ficou seu sono, energia, fala, pensamentos, impulsividade, autoconfiança e quais prejuízos ocorreram."
+  },
+  {
+    type:"input",
+    section:"Descrição Clínica",
+    text:"Descreva o período depressivo mais intenso: informe duração, tristeza, perda de interesse, sono, apetite, energia, culpa, concentração, pensamentos de morte e prejuízos ocorridos."
+  }
+];
 
 const N = QUESTIONS.length;
 
